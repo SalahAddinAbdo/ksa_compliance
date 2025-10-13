@@ -924,9 +924,7 @@ class Einvoice:
                 self.result['invoice']['net_total'] = (
                     self.sales_invoice_doc.paid_amount - self.sales_invoice_doc.total_taxes_and_charges
                 )
-        self.result['invoice']['grand_total'] = (
-            self.result['invoice']['net_total'] + self.result['invoice']['total_taxes_and_charges']
-        )
+        self.result['invoice']['grand_total'] = self.result['invoice']['net_total'] + tax_total['tax_amount']
         rounding_adjustment = 0
         if self.sales_invoice_doc.doctype != 'Payment Entry':
             rounding_adjustment = self.sales_invoice_doc.rounding_adjustment

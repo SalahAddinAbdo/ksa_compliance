@@ -1,4 +1,5 @@
 import frappe
+from frappe.utils import rounded
 
 from ksa_compliance.standard_doctypes.tax_category import map_tax_category
 from .service import get_right_fieldname, dataclass_to_frappe_dict
@@ -112,7 +113,6 @@ def create_tax_total(tax_categories: dict) -> dict:
         taxable_amount += amounts.taxable_amount
         total_discount += amounts.total_discount
         tax_sub_totals.append(tax_sub_total)
-
     return dataclass_to_frappe_dict(
         TaxTotal(tax_amount=tax_amount, taxable_amount=taxable_amount, tax_subtotal=tax_sub_totals)
     )
@@ -124,9 +124,9 @@ def _get_amounts(tax_category: TaxCategoryByItems) -> float:
     total_discount = 0
     amounts = frappe._dict()
     for row in tax_category.items:
-        taxable_amount += row.net_amount
-        tax_amount += row.tax_amount
-        total_discount += row.amount - row.net_amount
+        taxable_amount += rounded(row.net_amount, 2)
+        tax_amount += rounded(row.tax_amount, 2)
+        total_discount += rounded(row.amount - row.net_amount, 2)
     amounts.taxable_amount = taxable_amount
     amounts.tax_amount = tax_amount
     amounts.total_discount = total_discount
