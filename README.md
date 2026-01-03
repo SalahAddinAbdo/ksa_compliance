@@ -32,7 +32,7 @@ A free and open-source Frappe application for KSA Compliance (ZATCA Integration)
 -   **Self Hosting:**
 
 ```
-bench get-app --branch master https://github.com/lavaloon-eg/ksa_compliance.git
+bench get-app --branch master https://github.com/SalahAddinAbdo/ksa_compliance.git
 ```
 
 ```
@@ -64,11 +64,11 @@ bench restart
 
 ### Community Support:
 
-- Available in GitHub discussions <https://github.com/lavaloon-eg/ksa_compliance/discussions>
+- Available in GitHub discussions <https://github.com/SalahAddinAbdo/ksa_compliance/discussions>
 
 ### New Features and Bug report:
 
-- Please Create Github Issue <https://github.com/lavaloon-eg/ksa_compliance/issues> after checking the existing issues
+- Please Create Github Issue <https://github.com/SalahAddinAbdo/ksa_compliance/issues> after checking the existing issues
   - Please include bench information (i.e. output of `bench version`)
   - For invoice rejections, please attach or paste the generated invoice XML (from `Sales Invoice Additional Fields`), any validation warnings/errors, and screenshots of the `Sales Invoice` document
 - For paid features, you can email us: <info@lavaloon.com>
